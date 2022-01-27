@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='添加评论模块'><title>HUGO食用指南 - 留言篇</title>
+
+<link rel='canonical' href='https://catmode.github.io/p/hugo-comments/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='HUGO食用指南 - 留言篇'>
+<meta property='og:description' content='添加评论模块'>
+<meta property='og:url' content='https://catmode.github.io/p/hugo-comments/'>
+<meta property='og:site_name' content='ฅ=^•ﻌ•^=~'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='blog' /><meta property='article:published_time' content='2021-10-13T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-10-13T00:00:00&#43;00:00'/><meta property='og:image' content='https://catmode.github.io/p/hugo-comments/twikoo.png' />
+<meta name="twitter:title" content="HUGO食用指南 - 留言篇">
+<meta name="twitter:description" content="添加评论模块"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://catmode.github.io/p/hugo-comments/twikoo.png' />
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://catmode.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/hugo-comments/">
+                <img src="/p/hugo-comments/twikoo_hu0661149af5f14bdc73ea6fcb636f075f_4601_800x0_resize_box_3.png"
+                        srcset="/p/hugo-comments/twikoo_hu0661149af5f14bdc73ea6fcb636f075f_4601_800x0_resize_box_3.png 800w, /p/hugo-comments/twikoo_hu0661149af5f14bdc73ea6fcb636f075f_4601_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="315" 
+                        loading="lazy"
+                        alt="Featured image of post HUGO食用指南 - 留言篇" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/hugo/" style="background-color: #ff1493; color: #fff;">
+                Hugo
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/hugo-comments/">HUGO食用指南 - 留言篇</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        添加评论模块
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 13, 2021</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h1 id="twikoo">Twikoo</h1>
+<p>评论模块选择了<strong>Twikkoo</strong>，这里使用了<strong>Vercel 部署</strong>方式。详细参考<a class="link" href="https://twikoo.js.org/"  target="_blank" rel="noopener"
+    >Twikoo官方文档</a></p>
+<h2 id="vercel-部署教程">Vercel 部署教程</h2>
+
+
+
+
+
+
+    
+
+
+<div class="video-wrapper">
+    <iframe src="//player.bilibili.com/player.html?as_wide=1&amp;high_quality=1&amp;page=1&bvid=BV1Fh411e7ZH"
+            scrolling="no"
+            frameborder="no"
+            framespacing="0"
+            allowfullscreen="true"
+    >
+    </iframe>
+</div>
+
+<h2 id="创建mongodb数据库">创建MongoDB数据库</h2>
+<ol>
+<li>
+<p><a class="link" href="https://www.mongodb.com/zh-cn/cloud/atlas/register"  target="_blank" rel="noopener"
+    >申请 MongoDB 账号</a></p>
+</li>
+<li>
+<p>创建免费 MongoDB 数据库，区域推荐选择 <code>AWS / N. Virginia (us-east-1)</code></p>
+</li>
+<li>
+<p>在 <strong>Clusters</strong> 页面点击 <code>CONNECT</code>，按步骤<strong>设置允许所有 IP 地址的连接</strong></p>
+</li>
+<li>
+<p>创建数据库用户，并记录数据库连接字符串，请将连接字符串中的 <code>&lt;password&gt;</code> 修改为数据库密码</p>
+</li>
+</ol>
+<blockquote>
+<p>mongodb+srv://user:<!-- raw HTML omitted -->@cluster0.b5hay.mongodb.net/myFirstDatabase?retryWrites=true&amp;w=majority</p>
+</blockquote>
+<h2 id="部署至vercel">部署至Vercel</h2>
+<ol>
+<li>
+<p><a class="link" href="https://vercel.com/signup"  target="_blank" rel="noopener"
+    >申请 Vercel 账号</a></p>
+</li>
+<li>
+<p>点击<a class="link" href="https://vercel.com/import/project?template=https://github.com/imaegoo/twikoo/tree/dev/src/vercel-min"  target="_blank" rel="noopener"
+    >这里</a>将 Twikoo 一键部署到 Vercel</p>
+</li>
+<li>
+<p>进入 <code>Settings</code> - <code>Environment Variables</code>，添加环境变量 <code>MONGODB_URI</code>，值为上方第 4 步的数据库连接字符串</p>
+</li>
+<li>
+<p>进入 <code>Overview</code>，点击 Domains 下方的链接，如果环境配置正确，可以看到 “Twikoo 云函数运行正常” 的提示</p>
+</li>
+</ol>
+<blockquote>
+<p>Vercel Domains（包含 https:// 前缀，例如https://xxx.vercel.app）即为环境 id</p>
+</blockquote>
+<h2 id="前端部署">前端部署</h2>
+<ul>
+<li>如果网站主题支持 Twikoo，只需在配置文件中指定 Twikoo 即可</li>
+<li>如果网站主题不支持 Twikoo，需要修改源码手动引入 Twikoo 的 js 文件并初始化</li>
+</ul>
+<p>在站点配置文件中修改部分如下：</p>
+<pre><code>comments:
+    enabled: true
+    provider: twikoo
+...
+twikoo:
+    envId: &lt;添加Vercel Domains环境ID&gt;
+    region:
+    path:
+    lang:
+</code></pre>
+<h2 id="版本更新">版本更新</h2>
+<ol>
+<li>
+<p>进入 <a class="link" href="https://vercel.com/dashboard"  target="_blank" rel="noopener"
+    >Vercel 仪表板</a> - <code>twikoo</code> - <code>Settings</code> - <code>Git</code></p>
+</li>
+<li>
+<p>点击 <strong>Connected Git Repository</strong> 下方的仓库地址</p>
+</li>
+<li>
+<p>打开 <code>package.json</code>，点击编辑</p>
+</li>
+<li>
+<p>将 <code>&quot;twikoo-vercel&quot;: &quot;x.x.x&quot;</code> 其中的版本号修改为最新版本号。点击 <code>Commit changes</code></p>
+</li>
+<li>
+<p>部署会自动触发，可以回到 <a class="link" href="https://vercel.com/dashboard"  target="_blank" rel="noopener"
+    >Vercel 仪表板</a> ，查看部署状态</p>
+</li>
+</ol>
+<h2 id="设置头像">设置头像</h2>
+<p>Twikoo默认自定义头像CDN为：<strong>Gravatar</strong></p>
+<p><a class="link" href="https://en.gravatar.com/"  target="_blank" rel="noopener"
+    >申请 Gravatar 账号</a>，上传头像应用即可，之后用注册的邮箱评论就自带头像啦</p>
+<h1 id="一起愉快的灌水吧">一起愉快的灌水吧！</h1>
+<hr>
+<p><strong>HUGO食用指南</strong></p>
+<ul>
+<li><a class="link" href="https://catmode.github.io/p/hugo/"  target="_blank" rel="noopener"
+    >基础搭建及部署</a></li>
+<li><a class="link" href="https://catmode.github.io/p/hugo-music/"  target="_blank" rel="noopener"
+    >添加音乐模板</a></li>
+<li><a class="link" href="https://catmode.github.io/p/hugo-comments/"  target="_blank" rel="noopener"
+    >添加评论模块</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/blog/">blog</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/p/hugo-music/">
+        
+        
+            <div class="article-image">
+                <img src="/p/hugo-music/NetEase.9c3792fcb809e977042b81a7c870cda5_hu2436c9441d3146829ff7bd4c9d33a23e_34094_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="hugo-music" 
+                        data-hash="md5-nDeS/LgJ6XcEK4GnyHDNpQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HUGO食用指南 - 媒体篇</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/hugo/">
+        
+        
+            <div class="article-image">
+                <img src="/p/hugo/_hu1eca35fab2be5a61a943c0c4f6a621a8_107137_b67dc3f3f3d999beb68d5f21cfd00723.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="hugo" 
+                        data-hash="md5-zQRwy6ooZF0&#43;SGoGPuMkSA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HUGO食用指南</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/hugo-genshin/">
+        
+        
+            <div class="article-image">
+                <img src="/p/hugo-genshin/W.478733c9df209271a2d8c50dd202f231_hue071edce1e0b06411550a761516a818e_4129023_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="hugo-genshin" 
+                        data-hash="md5-R4czyd8gknGi2MUN0gLyMQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HUGO媒体插入实例</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    <script src="//cdn.jsdelivr.net/npm/twikoo@1.4.3/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+<style>
+    .twikoo {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+    :root[data-scheme="dark"] {
+        --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
+        --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
+    }
+    .twikoo .el-input-group__prepend,
+    .twikoo .tk-action-icon,
+    .twikoo .tk-time,
+    .twikoo .tk-comments-count {
+        color: var(--twikoo-body-text-color);
+    }
+    .twikoo .el-input__inner,
+    .twikoo .el-textarea__inner,
+    .twikoo .tk-preview-container,
+    .twikoo .tk-content,
+    .twikoo .tk-nick,
+    .twikoo .tk-send {
+        color: var(--twikoo-body-text-color-main);
+    }
+    .twikoo .el-button{
+        color: var(--twikoo-body-text-color)!important;
+    }
+</style><script>
+    twikoo.init({
+        envId: 'https:\/\/twikoo-opal.vercel.app\/',
+        el: '#tcomment',})
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2022 ฅ=^•ﻌ•^=~
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#vercel-部署教程">Vercel 部署教程</a></li>
+    <li><a href="#创建mongodb数据库">创建MongoDB数据库</a></li>
+    <li><a href="#部署至vercel">部署至Vercel</a></li>
+    <li><a href="#前端部署">前端部署</a></li>
+    <li><a href="#版本更新">版本更新</a></li>
+    <li><a href="#设置头像">设置头像</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

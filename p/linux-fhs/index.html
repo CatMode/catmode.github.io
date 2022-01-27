@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='文件系统层次结构'><title>Linux目录介绍</title>
+
+<link rel='canonical' href='https://catmode.github.io/p/linux-fhs/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Linux目录介绍'>
+<meta property='og:description' content='文件系统层次结构'>
+<meta property='og:url' content='https://catmode.github.io/p/linux-fhs/'>
+<meta property='og:site_name' content='ฅ=^•ﻌ•^=~'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2021-09-29T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-09-30T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Linux目录介绍">
+<meta name="twitter:description" content="文件系统层次结构">
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://catmode.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" style="background-color: #000000; color: #fff;">
+                Linux
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/linux-fhs/">Linux目录介绍</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        文件系统层次结构
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 29, 2021</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h1 id="fhs">FHS</h1>
+<p>Filesystem Hierarchy Standard（文件系统层次结构标准）<br>
+Linux发行版所遵循的文件系统结构的统一标准</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 148; 
+			flex-basis: 356px"
+	>
+	<a href="/p/linux-fhs/LFH.png" data-size="1194x804">
+		<img src="/p/linux-fhs/LFH.png"
+			width="1194"
+			height="804"
+			srcset="/p/linux-fhs/LFH_hu78f62bcbe72d226b8f98c42b26eec594_481051_480x0_resize_box_3.png 480w, /p/linux-fhs/LFH_hu78f62bcbe72d226b8f98c42b26eec594_481051_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="Linux文件系统层次结构标准图">
+	</a>
+	
+	<figcaption>Linux文件系统层次结构标准图</figcaption>
+	
+</figure></p>
+<blockquote>
+<p><strong>弧形：</strong> 目录<br>
+<strong>方形：</strong> 常规文件<br>
+<strong>菱形：</strong> 设备文件</p>
+</blockquote>
+<hr>
+<h2 id="heading"><code>/</code></h2>
+<p>根</p>
+<h2 id="bin"><code>/bin</code></h2>
+<p>供所有用户使用的基本命令程序文件</p>
+<h2 id="sbin"><code>/sbin</code></h2>
+<p>供系统管理员使用的工具程序</p>
+<h2 id="boot"><code>/boot</code></h2>
+<p>引导加载器必须用到的各种静态文件（kernel，initramfs(initrd)，grub等）</p>
+<h2 id="dev"><code>/dev</code></h2>
+<p>存储特殊文件或设备文件</p>
+<blockquote>
+<p>设备的两种类型：<strong>字符设备</strong>（线性设备，有时序）、<strong>块设备</strong>（随即设备，后发先制）</p>
+<ul>
+<li>字符型设备：键盘，显示器</li>
+<li>块设备：硬盘，内存</li>
+</ul>
+</blockquote>
+<h2 id="etc"><code>/etc</code></h2>
+<p>系统程序的静态配置文件</p>
+<h2 id="home"><code>/home</code></h2>
+<p>普通用户家目录的集中位置</p>
+<blockquote>
+<p>一般每个普通的家目录默认为此目录下与用户名同名的子目录：<strong>/home/USERNAME</strong></p>
+</blockquote>
+<h2 id="root"><code>/root</code></h2>
+<p>管理员的家目录</p>
+<h2 id="lib"><code>/lib</code></h2>
+<p>为系统启动或跟文件系统上的应用程序（/bin，/sbin等）提供共享库，以及为内核提供内核模块</p>
+<blockquote>
+<p>其中包含：</p>
+<ul>
+<li>libc.so.*：
+动态链接的C库</li>
+<li>ld*：
+运行时链接器/加载器</li>
+<li>modules：
+用于存放内核模块的目录</li>
+</ul>
+</blockquote>
+<h2 id="lib64"><code>/lib64</code></h2>
+<p>64位系统特有的存放64位共享库的路径</p>
+<h2 id="media"><code>/media</code></h2>
+<p>便携式设备挂载点：cdrom，floppy等</p>
+<h2 id="mnt"><code>/mnt</code></h2>
+<p>其他文件系统的临时挂载点</p>
+<h2 id="opt"><code>/opt</code></h2>
+<p>附加第三方应用程序的安装位置</p>
+<h2 id="srv"><code>/srv</code></h2>
+<p>当前主机为服务提供 的数据</p>
+<h2 id="tmp"><code>/tmp</code></h2>
+<p>为那些会产生临时文件的程序提供的用于存储临时文件的目录，可供左右有胡执行写入操作，有特殊权限</p>
+<h2 id="usr"><code>/usr</code></h2>
+<p><strong>usr Hierarchy</strong><br>
+全局共享的只读数据路径</p>
+<blockquote>
+<p>其中包含：</p>
+<ul>
+<li>bin，sbin</li>
+<li>lib，lib64</li>
+<li>include：C程序头文件</li>
+<li>share：命令手册页和命令自带文档等架构特有的文件的存储位置</li>
+<li>local：另一个层级目录</li>
+<li>X11R6：X-Windows程序的安装位置</li>
+<li>src：程序源码文件的存储位置</li>
+</ul>
+</blockquote>
+<h3 id="usrlocal"><code>/usr/local</code></h3>
+<p><strong>local Hierarchy</strong><br>
+让系统管理员安装本地应用程序，也通常用于安装第三方程序</p>
+<h2 id="var"><code>/var</code></h2>
+<p><strong>var Hierarchy</strong><br>
+存储常发生变化的数据的目录</p>
+<blockquote>
+<p>其中包含：cache，lib，local，lock，log，opt，run，spool，tmp</p>
+</blockquote>
+<h2 id="proc"><code>/proc</code></h2>
+<p>基于内存的虚拟文件系统，用于为内核及进程存储其相关信息，多为内核参数</p>
+<blockquote>
+<p>例如：<br>
+<strong>net.ipv4.ip_forward</strong><br>
+虚拟为 net/ipv4/ip_forward，存储于 /proc/sysy/<br>
+因此其完整路径为 <strong>/proc/sysy/net/ipv4/ip_forward</strong></p>
+</blockquote>
+<h2 id="sys"><code>/sys</code></h2>
+<p><strong>sysfs</strong><br>
+虚拟文件系统提供了一种比proc更为理想的访问内核数据的途径<br>
+其主要作用在于为管理Linux设备提供一种统一模型的接口</p>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">linux</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Sep 30, 2021 00:00 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/linux-network/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux网络及代理设置</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/clash/">
+        
+        
+            <div class="article-image">
+                <img src="/p/clash/logo.62b032ec96330aa95390beab6ed2bcf2_hu9de6bb2ad1464248651fbad983e7719a_38480_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="clash" 
+                        data-hash="md5-YrAy7JYzCqlTkL6rbtK88g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Clash for Linux</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/todesk/">
+        
+        
+            <div class="article-image">
+                <img src="/p/todesk/logo.48b3e167b8d0376ad4651583b5d42dad_hu3126559aa0a12ec1ab72b42eab8d77d4_37919_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="todesk" 
+                        data-hash="md5-SLPhZ7jQN2rUZRWDtdQtrQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ToDesk for Linux</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    <script src="//cdn.jsdelivr.net/npm/twikoo@1.4.3/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+<style>
+    .twikoo {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+    :root[data-scheme="dark"] {
+        --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
+        --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
+    }
+    .twikoo .el-input-group__prepend,
+    .twikoo .tk-action-icon,
+    .twikoo .tk-time,
+    .twikoo .tk-comments-count {
+        color: var(--twikoo-body-text-color);
+    }
+    .twikoo .el-input__inner,
+    .twikoo .el-textarea__inner,
+    .twikoo .tk-preview-container,
+    .twikoo .tk-content,
+    .twikoo .tk-nick,
+    .twikoo .tk-send {
+        color: var(--twikoo-body-text-color-main);
+    }
+    .twikoo .el-button{
+        color: var(--twikoo-body-text-color)!important;
+    }
+</style><script>
+    twikoo.init({
+        envId: 'https:\/\/twikoo-opal.vercel.app\/',
+        el: '#tcomment',})
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2022 ฅ=^•ﻌ•^=~
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#heading"><code>/</code></a></li>
+    <li><a href="#bin"><code>/bin</code></a></li>
+    <li><a href="#sbin"><code>/sbin</code></a></li>
+    <li><a href="#boot"><code>/boot</code></a></li>
+    <li><a href="#dev"><code>/dev</code></a></li>
+    <li><a href="#etc"><code>/etc</code></a></li>
+    <li><a href="#home"><code>/home</code></a></li>
+    <li><a href="#root"><code>/root</code></a></li>
+    <li><a href="#lib"><code>/lib</code></a></li>
+    <li><a href="#lib64"><code>/lib64</code></a></li>
+    <li><a href="#media"><code>/media</code></a></li>
+    <li><a href="#mnt"><code>/mnt</code></a></li>
+    <li><a href="#opt"><code>/opt</code></a></li>
+    <li><a href="#srv"><code>/srv</code></a></li>
+    <li><a href="#tmp"><code>/tmp</code></a></li>
+    <li><a href="#usr"><code>/usr</code></a>
+      <ol>
+        <li><a href="#usrlocal"><code>/usr/local</code></a></li>
+      </ol>
+    </li>
+    <li><a href="#var"><code>/var</code></a></li>
+    <li><a href="#proc"><code>/proc</code></a></li>
+    <li><a href="#sys"><code>/sys</code></a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

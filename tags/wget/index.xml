@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wget on ฅ=^•ﻌ•^=~</title>
+    <link>https://catmode.github.io/tags/wget/</link>
+    <description>Recent content in wget on ฅ=^•ﻌ•^=~</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 27 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://catmode.github.io/tags/wget/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clash for Linux</title>
+      <link>https://catmode.github.io/p/clash/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/clash/</guid>
+      <description>局域网代理流量转发&amp;amp;设置 这里介绍的代理软件为Clash，本篇教程基于 Debian 11，CentOS 系基本大同小异可以作为参考
+教程适用于只有终端（SSH）的机器，如装有 GUI 图形界面，可以直接使用 Clash for Windows 的 Linux 版
+选择版本  https://github.com/Dreamacro/clash/releases
+ 下载 wget https://github.com/Dreamacro/clash/releases/download/v1.6.5/clash-linux-amd64-v1.6.5.gz  注意： 版本号可能会变化，请勿照抄命令
+ 如果提示以下信息：
+Unable to establish SSL connection  则需要给wget挂代理，编辑配置文件：
+vi /etc/wgetrc  添加配置信息：
+http_proxy = http://adress:port/https_proxy = http://adress:port/ftp_proxy = http://adress:port/ 若无法连接提示:
+failed：Connection refused 则设置局域网中可使用Clash代理的主机进行局域网流量转发：
+  设置完成订阅链接及代理后（流量转发主机的代理能正常使用的情况下）进行下列步骤： 开启General - Allow LAN、System Proxy 默认端口7890，代理填写格式为流量转发的主机IP:7890，例：192.168.0.100:7890   解压 gunzip clash-linux-amd64-v1.6.5.gzchmod +x clash-linux-amd64-v1.6.5 配置 将clash订阅链接在这个网站转换后</description>
+    </item>
+    
+  </channel>
+</rss>

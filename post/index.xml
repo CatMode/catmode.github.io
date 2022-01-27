@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on ฅ=^•ﻌ•^=~</title>
+    <link>https://catmode.github.io/post/</link>
+    <description>Recent content in Posts on ฅ=^•ﻌ•^=~</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 27 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://catmode.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HUGO媒体插入实例</title>
+      <link>https://catmode.github.io/p/hugo-genshin/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/hugo-genshin/</guid>
+      <description>Inazuma Photo by 106996617
+Watatsumi  </description>
+    </item>
+    
+    <item>
+      <title>钢琴曲谱</title>
+      <link>https://catmode.github.io/p/piano/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/piano/</guid>
+      <description>《梦幻曲》舒曼 
+
+ 《月光》德彪西 
+
+
+
+
+
+ </description>
+    </item>
+    
+    <item>
+      <title>Oculus开发账号</title>
+      <link>https://catmode.github.io/p/oculus/</link>
+      <pubDate>Fri, 26 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/oculus/</guid>
+      <description>注册FB 下载Oculus APP
+开发者模式
+https://developer.oculus.com/downloads/native-android/ 下载Oculus Developer Hub
+Oculus开启开发者模式2021 10月版教程
+相信很多小伙伴们发现自己的Oculus APP上突然就没有了开发者权限这个选项，这是因为Oculus新政策导致的。因此在这里提供新的开启开发者模式的方法，此方法需要一根USB c口的数据线以及kx，这里就不提供kx的方法了。步骤如下： 输入以下网址https://developer.oculus.com/downloads/native-android/ 从中下载Oculus Developer Hub以下简称（ODH）对应操作系统的版本并安装。
+启动Oculus quest2，并用数据线连接至电脑，选择允许电脑读取。
+启动ODH，使用已经创建好的开发者账户登录（只需在借记卡和手机号里面选择一个验证过就可以了，验证的地址如下：https://developer.oculus.com/manage/verify/ 注册的教程网上太多了，此处不再赘述）
+进入软件后选择Device Manager -&amp;gt; Set Up New Device
+一直下一步，连接上能kx的WiFi，然后勾选Enable Developer Mode
+带上VR头盔，在里面选择允许此电脑使用USB调试之类的一个选项
+经过以上步骤，这台VR设备的开发者模式就开启完成了。</description>
+    </item>
+    
+    <item>
+      <title>HUGO食用指南 - 留言篇</title>
+      <link>https://catmode.github.io/p/hugo-comments/</link>
+      <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/hugo-comments/</guid>
+      <description>Twikoo 评论模块选择了Twikkoo，这里使用了Vercel 部署方式。详细参考Twikoo官方文档
+Vercel 部署教程 创建MongoDB数据库   申请 MongoDB 账号
+  创建免费 MongoDB 数据库，区域推荐选择 AWS / N. Virginia (us-east-1)
+  在 Clusters 页面点击 CONNECT，按步骤设置允许所有 IP 地址的连接
+  创建数据库用户，并记录数据库连接字符串，请将连接字符串中的 &amp;lt;password&amp;gt; 修改为数据库密码
+   mongodb+srv://user:@cluster0.b5hay.mongodb.net/myFirstDatabase?retryWrites=true&amp;amp;w=majority
+ 部署至Vercel   申请 Vercel 账号
+  点击这里将 Twikoo 一键部署到 Vercel
+  进入 Settings - Environment Variables，添加环境变量 MONGODB_URI，值为上方第 4 步的数据库连接字符串
+  进入 Overview，点击 Domains 下方的链接，如果环境配置正确，可以看到 “Twikoo 云函数运行正常” 的提示</description>
+    </item>
+    
+    <item>
+      <title>Clash - TUN</title>
+      <link>https://catmode.github.io/p/clash-tun/</link>
+      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/clash-tun/</guid>
+      <description>Clash-TUN  Clash 在安装 wintun 插件后即可全局接管所有软件的流量，包括游戏。开启后请注意流量消耗情况，避免使用代理更新游戏导致流量耗尽。
+  下载 wintun 插件 打开 https://www.wintun.net/ 下载最新 wintun插件并解压。
+复制 wintun 插件 在 Clash 主页点击 Home Directory 右侧的 Open Folder 打开 Clash 的主目录。
+
+将上一步解压文件中的 /wintun/bin/amd64/wintun.dll 复制到这个目录。（不要选错到arm64）
+激活 wintun 插件 点击 Clash 首页 Service Mode 右侧的 Manage，再点击 Install。此时系统可能会弹出 UAC 提示，允许后 Clash 会自动重启。
+如重启后 Service Mode 右侧地球变为绿色，表示激活成功。
+
+开启 Mixin 点击 Clash 左侧 Settings，点击 Profile Mixin 下方 YAML 右侧 Edit。
+
+删除已有内容，替换为：</description>
+    </item>
+    
+    <item>
+      <title>Linux目录介绍</title>
+      <link>https://catmode.github.io/p/linux-fhs/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/linux-fhs/</guid>
+      <description>FHS Filesystem Hierarchy Standard（文件系统层次结构标准）
+Linux发行版所遵循的文件系统结构的统一标准
+Linux文件系统层次结构标准图
+ 弧形： 目录
+方形： 常规文件
+菱形： 设备文件
+  / 根
+/bin 供所有用户使用的基本命令程序文件
+/sbin 供系统管理员使用的工具程序
+/boot 引导加载器必须用到的各种静态文件（kernel，initramfs(initrd)，grub等）
+/dev 存储特殊文件或设备文件
+ 设备的两种类型：字符设备（线性设备，有时序）、块设备（随即设备，后发先制）
+ 字符型设备：键盘，显示器 块设备：硬盘，内存   /etc 系统程序的静态配置文件
+/home 普通用户家目录的集中位置
+ 一般每个普通的家目录默认为此目录下与用户名同名的子目录：/home/USERNAME
+ /root 管理员的家目录
+/lib 为系统启动或跟文件系统上的应用程序（/bin，/sbin等）提供共享库，以及为内核提供内核模块
+ 其中包含：
+ libc.so.*： 动态链接的C库 ld*： 运行时链接器/加载器 modules： 用于存放内核模块的目录   /lib64 64位系统特有的存放64位共享库的路径
+/media 便携式设备挂载点：cdrom，floppy等
+/mnt 其他文件系统的临时挂载点
+/opt 附加第三方应用程序的安装位置
+/srv 当前主机为服务提供 的数据
+/tmp 为那些会产生临时文件的程序提供的用于存储临时文件的目录，可供左右有胡执行写入操作，有特殊权限
+/usr usr Hierarchy</description>
+    </item>
+    
+    <item>
+      <title>Linux网络及代理设置</title>
+      <link>https://catmode.github.io/p/linux-network/</link>
+      <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/linux-network/</guid>
+      <description>网络设置 直连 配置网卡 vi /etc/sysconfig/network-scripts/ifcfg-ens33 修改：
+ BOOTPROTO=dhcp ONBOOT=yes
+ 新增：
+ IPADDR=IP地址
+NETMASK=子网掩码
+GATWAY=网关
+DNS1=DNS
+ 配置网络 vi /etc/sysconfig/network 新增：
+ NETWORKING=yes
+HOSTNAME=默认为localhost.localdomain
+GATWAY=网关
+ 重启网络 service network restart 查看配置 使用ifconfig查看网卡信息
+如果提示找不到该命令：
+echo $PATH	#查看当前环境变量ls /sbin|grep ifconfig	#根据环境变量查看指令yum search ifconfig	#搜索ifconfig包yum install net-tools.x86_64	#安装搜索到的对应包 代理 配置网络与开启Clash代理 相关配置Clash的教程见上篇文章
+配置网卡 vi /etc/profile	#全局设置vi ~/.bashrc	#仅设置当前账户 新增：
+ # add proxy for network</description>
+    </item>
+    
+    <item>
+      <title>Clash for Linux</title>
+      <link>https://catmode.github.io/p/clash/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/clash/</guid>
+      <description>局域网代理流量转发&amp;amp;设置 这里介绍的代理软件为Clash，本篇教程基于 Debian 11，CentOS 系基本大同小异可以作为参考
+教程适用于只有终端（SSH）的机器，如装有 GUI 图形界面，可以直接使用 Clash for Windows 的 Linux 版
+选择版本  https://github.com/Dreamacro/clash/releases
+ 下载 wget https://github.com/Dreamacro/clash/releases/download/v1.6.5/clash-linux-amd64-v1.6.5.gz  注意： 版本号可能会变化，请勿照抄命令
+ 如果提示以下信息：
+Unable to establish SSL connection  则需要给wget挂代理，编辑配置文件：
+vi /etc/wgetrc  添加配置信息：
+http_proxy = http://adress:port/https_proxy = http://adress:port/ftp_proxy = http://adress:port/ 若无法连接提示:
+failed：Connection refused 则设置局域网中可使用Clash代理的主机进行局域网流量转发：
+  设置完成订阅链接及代理后（流量转发主机的代理能正常使用的情况下）进行下列步骤： 开启General - Allow LAN、System Proxy 默认端口7890，代理填写格式为流量转发的主机IP:7890，例：192.168.0.100:7890   解压 gunzip clash-linux-amd64-v1.6.5.gzchmod +x clash-linux-amd64-v1.6.5 配置 将clash订阅链接在这个网站转换后</description>
+    </item>
+    
+    <item>
+      <title>ToDesk for Linux</title>
+      <link>https://catmode.github.io/p/todesk/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/todesk/</guid>
+      <description>ToDesk for Linux 版本 Fedora/CentOS/RedHat
+其他版本以官方网站为准
+下载 最新版本详见官网
+wget https://dl.todesk.com/linux/todesk_3.2.2_x86_64.rpm 安装 sudo rpm -Uvh todesk_3.2.2_x86_64.rpm 启动 todesk 如不能正常使用，则执行以下命令初始化：
+sudo systemctl stop todeskd.service sudo mv /opt/todesk/config/todeskd.conf /opt/todesk/config/todeskd.conf.bak sudo systemctl start todeskd.service  排查错误可执行以下命令：
+tail -f /var/log/todesk/todeskd.log	#查看服务日志tail -f ~/.local/share/todesk/log/todesk.log	#查看客户端日志rm ~/.config/todesk/todesk.cfg	#删除客户端配置rm /opt/todesk/config/todeskd.conf	#删除服务设置配置  </description>
+    </item>
+    
+    <item>
+      <title>HUGO食用指南 - 媒体篇</title>
+      <link>https://catmode.github.io/p/hugo-music/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/hugo-music/</guid>
+      <description>添加HUGO站点音乐 stack主题自带视频模板，支持bilibili、tencent、youtube及本地视频，本篇主要介绍如何添加音乐模板
+存放 自定义模板.html 的目录有以下两处：
+  一个为根目录下：\layouts\shortcodes
+  一个为主题目录下：\themes\hugo-theme-stack\layouts\shortcodes
+  两个路径添加其中之一即可
+本地音乐 添加模板 添加本地音乐.html模板：
+&amp;lt;h2&amp;gt;{{.Get 0}}&amp;lt;/h2&amp;gt; &amp;lt;audio controls autoplay loop preload=&amp;#34;none&amp;#34; src=&amp;#34;{{.Get 0}}&amp;#34;&amp;gt; &amp;lt;p&amp;gt;Your browser does not support the &amp;lt;code&amp;gt;audio&amp;lt;/code&amp;gt; element.&amp;lt;/p&amp;gt; &amp;lt;/audio&amp;gt; Get 0：关闭自动播放
+Get 1：开启自动播放
+用法  在md中插入：   { {&amp;lt; music &amp;ldquo;music.mp3&amp;rdquo; &amp;ldquo;music&amp;rdquo; &amp;gt;} }
+ 注意： 中括号{{、}}内无空格
+第一个参数表示歌曲的位置，第二个参数表示歌名
+本地音乐存放至对应md目录下
+效果 Your browser does not support the audio element.
+  网易云音乐 原生的hugo不支持iframe标签嵌入，所以无法支持网易云音乐的外链播放，但可以用自定义的方式添加自己的shortcode-templates</description>
+    </item>
+    
+    <item>
+      <title>HUGO食用指南</title>
+      <link>https://catmode.github.io/p/hugo/</link>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/hugo/</guid>
+      <description>搭建基于Hugo的GitHub站点 Hugo简介  “Hugo，世界上最快的网站建设框架。”
+ Hugo以Go编写，是根据Apache许可证2.0提供的开源静态站点生成器。 Hugo支持TOML、YAML和JSON数据文件类型、Markdown和HTML内容文件，并使用短代码添加丰富的内容。其他值得注意的功能包括分类学、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS缩小以及对Sass SCSS工作流程的支持。 Hugo利用各种开源项目，非常适合博客、公司网站、创意作品集、在线杂志、单页应用程序，甚至数千页的网站，适用于那些想自己网站编写代码而不必担心设置复杂的运行时、依赖项和数据库的人。 使用Hugo构建的网站速度极快、安全，可以部署在任何地方，包括AWS、GitHub Pages、Heroku、Netlify和任何其他托管提供商。    安装Hugo Linux CentOS wget https://github.com/gohugoio/hugo/releases/download/v0.41/hugo_0.41_Linux-64bit.tar.gztar -zxvf ./hugo_0.41_Linux-64bit.tar.gzcp ./hugo /usr/local/bin/ MacOS brew安装 brew install hugo Windows Hugo官方文档中给出了choco和scoop两种安装方式
+choco安装 1.使用powershell安装Chocolatey：
+iex ((New-Object System.Net.WebClient).DownloadString(&amp;#39;https://chocolatey.org/install.ps1&amp;#39;)) 2.查看choco版本验证安装：
+choco version 3.使用choco安装hugo或hugo-extended：
+choco install hugo -confirm choco install hugo-extended -confirm 4.如果安装hugo过程中速度过慢可配置choco代理：
+choco config set proxy http://localhost:port scoop安装 1.使用powershell安装scoop：
+iex (new-object net.webclient).downloadstring(&amp;#39;https://raw.githubusercontent.com/lukesampson/scoop/master/bin/install.ps1&amp;#39;) 2.使用scoop安装hugo或hugo-extended：
+scoop install hugo scoop install hugo-extended  部署Hugo 以GitHub Page为例：</description>
+    </item>
+    
+  </channel>
+</rss>

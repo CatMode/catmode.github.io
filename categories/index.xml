@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on ฅ=^•ﻌ•^=~</title>
+    <link>https://catmode.github.io/categories/</link>
+    <description>Recent content in Categories on ฅ=^•ﻌ•^=~</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 27 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://catmode.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Genshin</title>
+      <link>https://catmode.github.io/categories/genshin/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/categories/genshin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://catmode.github.io/categories/hugo/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Piano</title>
+      <link>https://catmode.github.io/categories/piano/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/categories/piano/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VR</title>
+      <link>https://catmode.github.io/categories/vr/</link>
+      <pubDate>Fri, 26 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/categories/vr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Program</title>
+      <link>https://catmode.github.io/categories/program/</link>
+      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/categories/program/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://catmode.github.io/categories/linux/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

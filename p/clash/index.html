@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='安装&amp;配置教程'><title>Clash for Linux</title>
+
+<link rel='canonical' href='https://catmode.github.io/p/clash/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Clash for Linux'>
+<meta property='og:description' content='安装&amp;配置教程'>
+<meta property='og:url' content='https://catmode.github.io/p/clash/'>
+<meta property='og:site_name' content='ฅ=^•ﻌ•^=~'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='clash' /><meta property='article:tag' content='wget' /><meta property='article:tag' content='network' /><meta property='article:published_time' content='2021-09-27T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-09-27T00:00:00&#43;00:00'/><meta property='og:image' content='https://catmode.github.io/p/clash/logo.png' />
+<meta name="twitter:title" content="Clash for Linux">
+<meta name="twitter:description" content="安装&amp;配置教程"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://catmode.github.io/p/clash/logo.png' />
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://catmode.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/clash/">
+                <img src="/p/clash/logo_hu9de6bb2ad1464248651fbad983e7719a_38480_800x0_resize_box_3.png"
+                        srcset="/p/clash/logo_hu9de6bb2ad1464248651fbad983e7719a_38480_800x0_resize_box_3.png 800w, /p/clash/logo_hu9de6bb2ad1464248651fbad983e7719a_38480_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="480" 
+                        loading="lazy"
+                        alt="Featured image of post Clash for Linux" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" style="background-color: #000000; color: #fff;">
+                Linux
+            </a>
+        
+            <a href="/categories/program/" >
+                Program
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/clash/">Clash for Linux</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        安装&amp;配置教程
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 27, 2021</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h1 id="局域网代理流量转发设置">局域网代理流量转发&amp;设置</h1>
+<p>这里介绍的代理软件为<strong>Clash</strong>，本篇教程基于 <strong>Debian 11，CentOS</strong> 系基本大同小异可以作为参考<br>
+教程适用于只有终端（SSH）的机器，如装有 GUI 图形界面，可以直接使用 Clash for Windows 的 Linux 版</p>
+<h2 id="选择版本">选择版本</h2>
+<blockquote>
+<p><a class="link" href="https://github.com/Dreamacro/clash/releases"  target="_blank" rel="noopener"
+    >https://github.com/Dreamacro/clash/releases</a></p>
+</blockquote>
+<h2 id="下载">下载</h2>
+<pre><code>wget https://github.com/Dreamacro/clash/releases/download/v1.6.5/clash-linux-amd64-v1.6.5.gz
+</code></pre>
+<blockquote>
+<p><strong>注意：</strong> 版本号可能会变化，请勿照抄命令</p>
+</blockquote>
+<p>如果提示以下信息：</p>
+<pre><code>Unable to establish SSL connection  
+</code></pre>
+<p>则需要给wget挂代理，编辑配置文件：</p>
+<pre><code>vi /etc/wgetrc  
+</code></pre>
+<p>添加配置信息：</p>
+<pre><code>http_proxy = http://adress:port/
+https_proxy = http://adress:port/
+ftp_proxy = http://adress:port/
+</code></pre>
+<p>若无法连接提示:</p>
+<pre><code>failed：Connection refused
+</code></pre>
+<p>则设置局域网中可使用Clash代理的主机进行局域网流量转发：</p>
+<blockquote>
+<ul>
+<li>设置完成订阅链接及代理后（流量转发主机的代理能正常使用的情况下）进行下列步骤：</li>
+<li>开启General - Allow LAN、System Proxy</li>
+<li>默认端口7890，代理填写格式为流量转发的主机IP:7890，例：192.168.0.100:7890</li>
+</ul>
+</blockquote>
+<h2 id="解压">解压</h2>
+<pre><code>gunzip clash-linux-amd64-v1.6.5.gz
+
+chmod +x clash-linux-amd64-v1.6.5
+</code></pre>
+<h2 id="配置">配置</h2>
+<p>将clash订阅链接在<a class="link" href="https://sub.ftt.me/"  target="_blank" rel="noopener"
+    >这个网站</a>转换后</p>
+<pre><code>wget -O config.yaml &quot;转换后的订阅链接&quot;
+</code></pre>
+<h2 id="修改">修改</h2>
+<p>由于默认订阅配置没有设置密码，安全起见使用 nano / vim 等编辑器打开配置文件添加一行：</p>
+<pre><code>secret: &quot;password&quot;
+</code></pre>
+<ul>
+<li>将 password 替换为你想要设置的密码</li>
+<li>将原有的 allow-lan: true 改为 allow-lan: false ，保存文件</li>
+</ul>
+<h2 id="运行">运行</h2>
+<p>使用以下命令让 clash core 保持后台运行：</p>
+<pre><code>apt update
+
+apt install screen
+
+screen -S clash
+
+./clash -f config.yaml
+</code></pre>
+<p>如一切正常会看到以下回显，按住 Ctrl 依次再按一下 A D 将 clash core 切换到后台</p>
+<blockquote>
+<p>INFO[0000] Start initial compatible provider * ****<br>
+&hellip;</p>
+</blockquote>
+<h2 id="设置">设置</h2>
+<p>使用 nano / vim 等编辑器打开 <code>~/.bashrc</code> ，在末尾添加一行：</p>
+<pre><code>export ALL_PROXY=&quot;socks5://127.0.0.1:7891&quot;
+</code></pre>
+<p>保存文件，打开<a class="link" href="http://clash.razord.top/"  target="_blank" rel="noopener"
+    >这个网址</a>
+其中 Host 为 Linux 主机的 IP 地址，端口为 9090 ，密钥为第五步中设置的密码。填写妥当后点击确定。
+在“代理”页面的“节点选择”和“漏网之鱼”分组选择任意服务器。</p>
+<blockquote>
+<p><strong>注意：</strong> 切换立即生效，无需保存。关闭网页不影响代理运行。
+退出当前终端（SSH），重新连接即可生效。</p>
+</blockquote>
+<h2 id="测试">测试</h2>
+<p>可以使用以下命令测试代理生效情况：</p>
+<pre><code>curl -I https://google.com
+</code></pre>
+<p>请注意 Ping 命令使用 ICMP 协议，默认不走代理</p>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/clash/">clash</a>
+        
+            <a href="/tags/wget/">wget</a>
+        
+            <a href="/tags/network/">network</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/clash-tun/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Clash - TUN</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/todesk/">
+        
+        
+            <div class="article-image">
+                <img src="/p/todesk/logo.48b3e167b8d0376ad4651583b5d42dad_hu3126559aa0a12ec1ab72b42eab8d77d4_37919_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="todesk" 
+                        data-hash="md5-SLPhZ7jQN2rUZRWDtdQtrQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ToDesk for Linux</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/linux-fhs/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux目录介绍</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/linux-network/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux网络及代理设置</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    <script src="//cdn.jsdelivr.net/npm/twikoo@1.4.3/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+<style>
+    .twikoo {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+    :root[data-scheme="dark"] {
+        --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
+        --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
+    }
+    .twikoo .el-input-group__prepend,
+    .twikoo .tk-action-icon,
+    .twikoo .tk-time,
+    .twikoo .tk-comments-count {
+        color: var(--twikoo-body-text-color);
+    }
+    .twikoo .el-input__inner,
+    .twikoo .el-textarea__inner,
+    .twikoo .tk-preview-container,
+    .twikoo .tk-content,
+    .twikoo .tk-nick,
+    .twikoo .tk-send {
+        color: var(--twikoo-body-text-color-main);
+    }
+    .twikoo .el-button{
+        color: var(--twikoo-body-text-color)!important;
+    }
+</style><script>
+    twikoo.init({
+        envId: 'https:\/\/twikoo-opal.vercel.app\/',
+        el: '#tcomment',})
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2022 ฅ=^•ﻌ•^=~
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#选择版本">选择版本</a></li>
+    <li><a href="#下载">下载</a></li>
+    <li><a href="#解压">解压</a></li>
+    <li><a href="#配置">配置</a></li>
+    <li><a href="#修改">修改</a></li>
+    <li><a href="#运行">运行</a></li>
+    <li><a href="#设置">设置</a></li>
+    <li><a href="#测试">测试</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

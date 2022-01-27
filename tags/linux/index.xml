@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on ฅ=^•ﻌ•^=~</title>
+    <link>https://catmode.github.io/tags/linux/</link>
+    <description>Recent content in linux on ฅ=^•ﻌ•^=~</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 29 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://catmode.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux目录介绍</title>
+      <link>https://catmode.github.io/p/linux-fhs/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/linux-fhs/</guid>
+      <description>FHS Filesystem Hierarchy Standard（文件系统层次结构标准）
+Linux发行版所遵循的文件系统结构的统一标准
+Linux文件系统层次结构标准图
+ 弧形： 目录
+方形： 常规文件
+菱形： 设备文件
+  / 根
+/bin 供所有用户使用的基本命令程序文件
+/sbin 供系统管理员使用的工具程序
+/boot 引导加载器必须用到的各种静态文件（kernel，initramfs(initrd)，grub等）
+/dev 存储特殊文件或设备文件
+ 设备的两种类型：字符设备（线性设备，有时序）、块设备（随即设备，后发先制）
+ 字符型设备：键盘，显示器 块设备：硬盘，内存   /etc 系统程序的静态配置文件
+/home 普通用户家目录的集中位置
+ 一般每个普通的家目录默认为此目录下与用户名同名的子目录：/home/USERNAME
+ /root 管理员的家目录
+/lib 为系统启动或跟文件系统上的应用程序（/bin，/sbin等）提供共享库，以及为内核提供内核模块
+ 其中包含：
+ libc.so.*： 动态链接的C库 ld*： 运行时链接器/加载器 modules： 用于存放内核模块的目录   /lib64 64位系统特有的存放64位共享库的路径
+/media 便携式设备挂载点：cdrom，floppy等
+/mnt 其他文件系统的临时挂载点
+/opt 附加第三方应用程序的安装位置
+/srv 当前主机为服务提供 的数据
+/tmp 为那些会产生临时文件的程序提供的用于存储临时文件的目录，可供左右有胡执行写入操作，有特殊权限
+/usr usr Hierarchy</description>
+    </item>
+    
+    <item>
+      <title>Linux网络及代理设置</title>
+      <link>https://catmode.github.io/p/linux-network/</link>
+      <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/linux-network/</guid>
+      <description>网络设置 直连 配置网卡 vi /etc/sysconfig/network-scripts/ifcfg-ens33 修改：
+ BOOTPROTO=dhcp ONBOOT=yes
+ 新增：
+ IPADDR=IP地址
+NETMASK=子网掩码
+GATWAY=网关
+DNS1=DNS
+ 配置网络 vi /etc/sysconfig/network 新增：
+ NETWORKING=yes
+HOSTNAME=默认为localhost.localdomain
+GATWAY=网关
+ 重启网络 service network restart 查看配置 使用ifconfig查看网卡信息
+如果提示找不到该命令：
+echo $PATH	#查看当前环境变量ls /sbin|grep ifconfig	#根据环境变量查看指令yum search ifconfig	#搜索ifconfig包yum install net-tools.x86_64	#安装搜索到的对应包 代理 配置网络与开启Clash代理 相关配置Clash的教程见上篇文章
+配置网卡 vi /etc/profile	#全局设置vi ~/.bashrc	#仅设置当前账户 新增：
+ # add proxy for network</description>
+    </item>
+    
+  </channel>
+</rss>

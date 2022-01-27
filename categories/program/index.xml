@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Program on ฅ=^•ﻌ•^=~</title>
+    <link>https://catmode.github.io/categories/program/</link>
+    <description>Recent content in Program on ฅ=^•ﻌ•^=~</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 09 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://catmode.github.io/categories/program/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clash - TUN</title>
+      <link>https://catmode.github.io/p/clash-tun/</link>
+      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/clash-tun/</guid>
+      <description>Clash-TUN  Clash 在安装 wintun 插件后即可全局接管所有软件的流量，包括游戏。开启后请注意流量消耗情况，避免使用代理更新游戏导致流量耗尽。
+  下载 wintun 插件 打开 https://www.wintun.net/ 下载最新 wintun插件并解压。
+复制 wintun 插件 在 Clash 主页点击 Home Directory 右侧的 Open Folder 打开 Clash 的主目录。
+
+将上一步解压文件中的 /wintun/bin/amd64/wintun.dll 复制到这个目录。（不要选错到arm64）
+激活 wintun 插件 点击 Clash 首页 Service Mode 右侧的 Manage，再点击 Install。此时系统可能会弹出 UAC 提示，允许后 Clash 会自动重启。
+如重启后 Service Mode 右侧地球变为绿色，表示激活成功。
+
+开启 Mixin 点击 Clash 左侧 Settings，点击 Profile Mixin 下方 YAML 右侧 Edit。
+
+删除已有内容，替换为：</description>
+    </item>
+    
+    <item>
+      <title>Clash for Linux</title>
+      <link>https://catmode.github.io/p/clash/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/clash/</guid>
+      <description>局域网代理流量转发&amp;amp;设置 这里介绍的代理软件为Clash，本篇教程基于 Debian 11，CentOS 系基本大同小异可以作为参考
+教程适用于只有终端（SSH）的机器，如装有 GUI 图形界面，可以直接使用 Clash for Windows 的 Linux 版
+选择版本  https://github.com/Dreamacro/clash/releases
+ 下载 wget https://github.com/Dreamacro/clash/releases/download/v1.6.5/clash-linux-amd64-v1.6.5.gz  注意： 版本号可能会变化，请勿照抄命令
+ 如果提示以下信息：
+Unable to establish SSL connection  则需要给wget挂代理，编辑配置文件：
+vi /etc/wgetrc  添加配置信息：
+http_proxy = http://adress:port/https_proxy = http://adress:port/ftp_proxy = http://adress:port/ 若无法连接提示:
+failed：Connection refused 则设置局域网中可使用Clash代理的主机进行局域网流量转发：
+  设置完成订阅链接及代理后（流量转发主机的代理能正常使用的情况下）进行下列步骤： 开启General - Allow LAN、System Proxy 默认端口7890，代理填写格式为流量转发的主机IP:7890，例：192.168.0.100:7890   解压 gunzip clash-linux-amd64-v1.6.5.gzchmod +x clash-linux-amd64-v1.6.5 配置 将clash订阅链接在这个网站转换后</description>
+    </item>
+    
+    <item>
+      <title>ToDesk for Linux</title>
+      <link>https://catmode.github.io/p/todesk/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/todesk/</guid>
+      <description>ToDesk for Linux 版本 Fedora/CentOS/RedHat
+其他版本以官方网站为准
+下载 最新版本详见官网
+wget https://dl.todesk.com/linux/todesk_3.2.2_x86_64.rpm 安装 sudo rpm -Uvh todesk_3.2.2_x86_64.rpm 启动 todesk 如不能正常使用，则执行以下命令初始化：
+sudo systemctl stop todeskd.service sudo mv /opt/todesk/config/todeskd.conf /opt/todesk/config/todeskd.conf.bak sudo systemctl start todeskd.service  排查错误可执行以下命令：
+tail -f /var/log/todesk/todeskd.log	#查看服务日志tail -f ~/.local/share/todesk/log/todesk.log	#查看客户端日志rm ~/.config/todesk/todesk.cfg	#删除客户端配置rm /opt/todesk/config/todeskd.conf	#删除服务设置配置  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on ฅ=^•ﻌ•^=~</title>
+    <link>https://catmode.github.io/tags/blog/</link>
+    <description>Recent content in blog on ฅ=^•ﻌ•^=~</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 13 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://catmode.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HUGO食用指南 - 留言篇</title>
+      <link>https://catmode.github.io/p/hugo-comments/</link>
+      <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/hugo-comments/</guid>
+      <description>Twikoo 评论模块选择了Twikkoo，这里使用了Vercel 部署方式。详细参考Twikoo官方文档
+Vercel 部署教程 创建MongoDB数据库   申请 MongoDB 账号
+  创建免费 MongoDB 数据库，区域推荐选择 AWS / N. Virginia (us-east-1)
+  在 Clusters 页面点击 CONNECT，按步骤设置允许所有 IP 地址的连接
+  创建数据库用户，并记录数据库连接字符串，请将连接字符串中的 &amp;lt;password&amp;gt; 修改为数据库密码
+   mongodb+srv://user:@cluster0.b5hay.mongodb.net/myFirstDatabase?retryWrites=true&amp;amp;w=majority
+ 部署至Vercel   申请 Vercel 账号
+  点击这里将 Twikoo 一键部署到 Vercel
+  进入 Settings - Environment Variables，添加环境变量 MONGODB_URI，值为上方第 4 步的数据库连接字符串
+  进入 Overview，点击 Domains 下方的链接，如果环境配置正确，可以看到 “Twikoo 云函数运行正常” 的提示</description>
+    </item>
+    
+    <item>
+      <title>HUGO食用指南 - 媒体篇</title>
+      <link>https://catmode.github.io/p/hugo-music/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/hugo-music/</guid>
+      <description>添加HUGO站点音乐 stack主题自带视频模板，支持bilibili、tencent、youtube及本地视频，本篇主要介绍如何添加音乐模板
+存放 自定义模板.html 的目录有以下两处：
+  一个为根目录下：\layouts\shortcodes
+  一个为主题目录下：\themes\hugo-theme-stack\layouts\shortcodes
+  两个路径添加其中之一即可
+本地音乐 添加模板 添加本地音乐.html模板：
+&amp;lt;h2&amp;gt;{{.Get 0}}&amp;lt;/h2&amp;gt; &amp;lt;audio controls autoplay loop preload=&amp;#34;none&amp;#34; src=&amp;#34;{{.Get 0}}&amp;#34;&amp;gt; &amp;lt;p&amp;gt;Your browser does not support the &amp;lt;code&amp;gt;audio&amp;lt;/code&amp;gt; element.&amp;lt;/p&amp;gt; &amp;lt;/audio&amp;gt; Get 0：关闭自动播放
+Get 1：开启自动播放
+用法  在md中插入：   { {&amp;lt; music &amp;ldquo;music.mp3&amp;rdquo; &amp;ldquo;music&amp;rdquo; &amp;gt;} }
+ 注意： 中括号{{、}}内无空格
+第一个参数表示歌曲的位置，第二个参数表示歌名
+本地音乐存放至对应md目录下
+效果 Your browser does not support the audio element.
+  网易云音乐 原生的hugo不支持iframe标签嵌入，所以无法支持网易云音乐的外链播放，但可以用自定义的方式添加自己的shortcode-templates</description>
+    </item>
+    
+    <item>
+      <title>HUGO食用指南</title>
+      <link>https://catmode.github.io/p/hugo/</link>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/p/hugo/</guid>
+      <description>搭建基于Hugo的GitHub站点 Hugo简介  “Hugo，世界上最快的网站建设框架。”
+ Hugo以Go编写，是根据Apache许可证2.0提供的开源静态站点生成器。 Hugo支持TOML、YAML和JSON数据文件类型、Markdown和HTML内容文件，并使用短代码添加丰富的内容。其他值得注意的功能包括分类学、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS缩小以及对Sass SCSS工作流程的支持。 Hugo利用各种开源项目，非常适合博客、公司网站、创意作品集、在线杂志、单页应用程序，甚至数千页的网站，适用于那些想自己网站编写代码而不必担心设置复杂的运行时、依赖项和数据库的人。 使用Hugo构建的网站速度极快、安全，可以部署在任何地方，包括AWS、GitHub Pages、Heroku、Netlify和任何其他托管提供商。    安装Hugo Linux CentOS wget https://github.com/gohugoio/hugo/releases/download/v0.41/hugo_0.41_Linux-64bit.tar.gztar -zxvf ./hugo_0.41_Linux-64bit.tar.gzcp ./hugo /usr/local/bin/ MacOS brew安装 brew install hugo Windows Hugo官方文档中给出了choco和scoop两种安装方式
+choco安装 1.使用powershell安装Chocolatey：
+iex ((New-Object System.Net.WebClient).DownloadString(&amp;#39;https://chocolatey.org/install.ps1&amp;#39;)) 2.查看choco版本验证安装：
+choco version 3.使用choco安装hugo或hugo-extended：
+choco install hugo -confirm choco install hugo-extended -confirm 4.如果安装hugo过程中速度过慢可配置choco代理：
+choco config set proxy http://localhost:port scoop安装 1.使用powershell安装scoop：
+iex (new-object net.webclient).downloadstring(&amp;#39;https://raw.githubusercontent.com/lukesampson/scoop/master/bin/install.ps1&amp;#39;) 2.使用scoop安装hugo或hugo-extended：
+scoop install hugo scoop install hugo-extended  部署Hugo 以GitHub Page为例：</description>
+    </item>
+    
+  </channel>
+</rss>

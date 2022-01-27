@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='CentOS 7'><title>Linux网络及代理设置</title>
+
+<link rel='canonical' href='https://catmode.github.io/p/linux-network/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Linux网络及代理设置'>
+<meta property='og:description' content='CentOS 7'>
+<meta property='og:url' content='https://catmode.github.io/p/linux-network/'>
+<meta property='og:site_name' content='ฅ=^•ﻌ•^=~'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2021-09-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2021-09-28T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Linux网络及代理设置">
+<meta name="twitter:description" content="CentOS 7">
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="https://catmode.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" style="background-color: #000000; color: #fff;">
+                Linux
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/linux-network/">Linux网络及代理设置</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        CentOS 7
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 28, 2021</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h1 id="网络设置">网络设置</h1>
+<h2 id="直连">直连</h2>
+<h3 id="配置网卡">配置网卡</h3>
+<pre><code>vi /etc/sysconfig/network-scripts/ifcfg-ens33
+</code></pre>
+<p>修改：</p>
+<blockquote>
+<p>BOOTPROTO=dhcp <br>
+ONBOOT=yes</p>
+</blockquote>
+<p>新增：</p>
+<blockquote>
+<p>IPADDR=IP地址<br>
+NETMASK=子网掩码<br>
+GATWAY=网关<br>
+DNS1=DNS</p>
+</blockquote>
+<h3 id="配置网络">配置网络</h3>
+<pre><code>vi /etc/sysconfig/network
+</code></pre>
+<p>新增：</p>
+<blockquote>
+<p>NETWORKING=yes<br>
+HOSTNAME=默认为localhost.localdomain<br>
+GATWAY=网关</p>
+</blockquote>
+<h3 id="重启网络">重启网络</h3>
+<pre><code>service network restart
+</code></pre>
+<h3 id="查看配置">查看配置</h3>
+<p>使用ifconfig查看网卡信息<br>
+如果提示找不到该命令：</p>
+<pre><code>echo $PATH					#查看当前环境变量
+ls /sbin|grep ifconfig				#根据环境变量查看指令
+yum search ifconfig				#搜索ifconfig包
+yum install net-tools.x86_64			#安装搜索到的对应包
+</code></pre>
+<h2 id="代理">代理</h2>
+<p>配置网络与开启Clash代理
+相关配置Clash的教程见<a class="link" href="https://catmode.github.io/p/clash/"  target="_blank" rel="noopener"
+    >上篇文章</a></p>
+<h3 id="配置网卡-1">配置网卡</h3>
+<pre><code>vi /etc/profile					#全局设置
+
+vi ~/.bashrc					#仅设置当前账户
+</code></pre>
+<p>新增：</p>
+<blockquote>
+<p><strong># add proxy for network</strong><br>
+export http_proxy=127.0.0.1:7890<br>
+export https_proxy=127.0.0.1:7890<br>
+export ftp_proxy=127.0.0.1:7890</p>
+</blockquote>
+<p>或只新增：</p>
+<blockquote>
+<p>export ALL_PROXY=socks5://127.0.0.1:7890</p>
+</blockquote>
+<p>保存：</p>
+<pre><code>source /ertc/profile				#全局生效
+
+source ~/.bashrc				#当前账户生效
+</code></pre>
+<hr>
+<h1 id="安装proxychains4">安装proxychains4</h1>
+<h2 id="配置git">配置git</h2>
+<h3 id="安装">安装</h3>
+<pre><code>sudo yum install git
+</code></pre>
+<p>如果git太慢，则需要给git挂代理</p>
+<h3 id="直连-1">直连</h3>
+<p><strong>方法一：</strong> 使用nslookup查找github对应ip及域名后修改host</p>
+<ul>
+<li>安装nslookup</li>
+</ul>
+<p>使用yum查找并安装对应安装包：</p>
+<pre><code>yum provides */nslookup				#下载nslookup，查询软件包
+yum install -y bind-utils			#安装查找到的bind-utils包
+</code></pre>
+<ul>
+<li>使用nslookup</li>
+</ul>
+<p>查找github域名及对应ip地址：</p>
+<pre><code>nslookup github.global.ssl.fastly.Net  
+
+nslookup github.com
+</code></pre>
+<ul>
+<li>修改hosts</li>
+</ul>
+<p>编辑hosts，添加查找到的github域名及ip地址：</p>
+<pre><code>vi /etc/hosts
+</code></pre>
+<blockquote>
+<p>github.com IP<br>
+github.global.ssl.fastly.Net IP</p>
+</blockquote>
+<h3 id="代理-1">代理</h3>
+<p><strong>方法二：</strong> 直接给git设置代理，需要局域网内clash主机开启流量转发</p>
+<pre><code>git config --global http.proxy ip:port		#设置代理
+
+git config --global --unset http.proxy		#取消代理
+</code></pre>
+<h2 id="配置proxychains4">配置proxychains4</h2>
+<h3 id="安装-1">安装</h3>
+<p>安装proxychains4</p>
+<p>使用git克隆：</p>
+<pre><code>git clone --depth=1 https://github.com/rofl0r/proxychains-ng.git
+</code></pre>
+<p>如果之前使用过这条命令，且提示未找到proxychains-ng包
+删除刚刚下载的proxychains-ng包：</p>
+<pre><code>rm -rf proxychains-ng
+</code></pre>
+<p>编译及安装：</p>
+<pre><code>cd proxychains-ng
+sudo ./configure &amp;&amp; sudo make &amp;&amp; sudo make install
+</code></pre>
+<p>如果提示编译异常，需要安装gcc：</p>
+<pre><code>sudo yum install gcc
+</code></pre>
+<p>再次执行编译及安装</p>
+<h3 id="配置">配置</h3>
+<p>安装配置文件：</p>
+<pre><code>sudo make install-config
+sudo ln -s /usr/local/bin/proxychains4 /usr/bin/
+</code></pre>
+<p>修改配置文件：</p>
+<pre><code>vi /usr/local/etc/proxychains.conf
+</code></pre>
+<p>在注释最后添加：</p>
+<blockquote>
+<p>socks4 127.0.0.1 9050<br>
+socks5 ip:port</p>
+</blockquote>
+<blockquote>
+<p>可能需要将它拷贝到<code>/etc/proxychains.conf</code>路径下才能生效，默认为该目录或使用正常忽略即可</p>
+</blockquote>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">linux</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/linux-fhs/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux目录介绍</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/clash/">
+        
+        
+            <div class="article-image">
+                <img src="/p/clash/logo.62b032ec96330aa95390beab6ed2bcf2_hu9de6bb2ad1464248651fbad983e7719a_38480_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="clash" 
+                        data-hash="md5-YrAy7JYzCqlTkL6rbtK88g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Clash for Linux</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/todesk/">
+        
+        
+            <div class="article-image">
+                <img src="/p/todesk/logo.48b3e167b8d0376ad4651583b5d42dad_hu3126559aa0a12ec1ab72b42eab8d77d4_37919_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="todesk" 
+                        data-hash="md5-SLPhZ7jQN2rUZRWDtdQtrQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ToDesk for Linux</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    <script src="//cdn.jsdelivr.net/npm/twikoo@1.4.3/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+<style>
+    .twikoo {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+    :root[data-scheme="dark"] {
+        --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
+        --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
+    }
+    .twikoo .el-input-group__prepend,
+    .twikoo .tk-action-icon,
+    .twikoo .tk-time,
+    .twikoo .tk-comments-count {
+        color: var(--twikoo-body-text-color);
+    }
+    .twikoo .el-input__inner,
+    .twikoo .el-textarea__inner,
+    .twikoo .tk-preview-container,
+    .twikoo .tk-content,
+    .twikoo .tk-nick,
+    .twikoo .tk-send {
+        color: var(--twikoo-body-text-color-main);
+    }
+    .twikoo .el-button{
+        color: var(--twikoo-body-text-color)!important;
+    }
+</style><script>
+    twikoo.init({
+        envId: 'https:\/\/twikoo-opal.vercel.app\/',
+        el: '#tcomment',})
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2022 ฅ=^•ﻌ•^=~
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.2.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#直连">直连</a>
+      <ol>
+        <li><a href="#配置网卡">配置网卡</a></li>
+        <li><a href="#配置网络">配置网络</a></li>
+        <li><a href="#重启网络">重启网络</a></li>
+        <li><a href="#查看配置">查看配置</a></li>
+      </ol>
+    </li>
+    <li><a href="#代理">代理</a>
+      <ol>
+        <li><a href="#配置网卡-1">配置网卡</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#配置git">配置git</a>
+      <ol>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#直连-1">直连</a></li>
+        <li><a href="#代理-1">代理</a></li>
+      </ol>
+    </li>
+    <li><a href="#配置proxychains4">配置proxychains4</a>
+      <ol>
+        <li><a href="#安装-1">安装</a></li>
+        <li><a href="#配置">配置</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on ฅ=^•ﻌ•^=~</title>
+    <link>https://catmode.github.io/tags/</link>
+    <description>Recent content in Tags on ฅ=^•ﻌ•^=~</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 27 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://catmode.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>musical</title>
+      <link>https://catmode.github.io/tags/musical/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/tags/musical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>play</title>
+      <link>https://catmode.github.io/tags/play/</link>
+      <pubDate>Fri, 26 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/tags/play/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://catmode.github.io/tags/blog/</link>
+      <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clash</title>
+      <link>https://catmode.github.io/tags/clash/</link>
+      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/tags/clash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>https://catmode.github.io/tags/network/</link>
+      <pubDate>Sat, 09 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://catmode.github.io/tags/linux/</link>
+      <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wget</title>
+      <link>https://catmode.github.io/tags/wget/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/tags/wget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>theme</title>
+      <link>https://catmode.github.io/tags/theme/</link>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://catmode.github.io/tags/theme/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
